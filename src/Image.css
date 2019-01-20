@@ -1,0 +1,10 @@
+.rsu-image-item {
+    margin: 10px;
+    min-height: 150px;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+}
+
+.rsu-image-item img {
+    max-width: 100%;
+}

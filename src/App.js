@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Unsplashsearch from './Unsplashsearch';
+
+const keyapi = '';
 
 class App extends Component {
+
+  state = {
+    query : '',
+  }
+
+  //Arrow function for binding
+  changeQuery = (event) => {
+    this.setState({
+      query : event.target.value
+    })
+  }
+
   render() {
+    const { query } = this.state;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="rsu-app">
+        <Unsplashsearch apiKey={keyapi} />
       </div>
     );
   }
