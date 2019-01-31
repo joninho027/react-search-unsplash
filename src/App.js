@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Unsplashsearch from './Unsplashsearch';
 
-const keyapi = '';
+
 
 class App extends Component {
 
@@ -18,7 +18,6 @@ class App extends Component {
   }
 
   render() {
-    const { query } = this.state;
 
     return (
       <div className="rsu-app">

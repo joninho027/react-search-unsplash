@@ -1,10 +1,39 @@
+.rsu-image {
+    padding: 10px;
+}
+
+.rsu-image.loaded .rsu-image-item {
+    background-color: transparent;
+}
+
 .rsu-image-item {
-    margin: 10px;
     min-height: 150px;
     background-color: rgba(0, 0, 0, 0.2);
-    display: flex;
 }
 
 .rsu-image-item img {
     max-width: 100%;
+    transition: 1s ease-in-out;
+}
+
+.rsu-image-item img.unloaded {
+    opacity: 0;
+}
+
+.rsu-image-item img.loaded {
+    opacity: 1;
+}
+
+.rsu-image-tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rsu-image-tags > div {
+    margin: 5px;
+    padding: 5px 8px;
+    font-size: 11px;
+    background-color: #eee;
+    border-radius: 3px;
+    cursor: pointer;
 }

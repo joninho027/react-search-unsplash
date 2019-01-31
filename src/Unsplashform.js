@@ -2,15 +2,36 @@ import React, { Component } from 'react';
 
 class Unsplashform extends Component {
 
-    updateValue = (event) => {
-        this.props.onChange(event.target.value);
+    state = {
+      query: ''
     }
 
+    submitForm = (event) => {
+      event.preventDefault();
+      this.props.onSubmit(this.state.localQuery);
+    }
+
+    updateValueQuery = (event) => {
+      const query = event.target.value;
+      this.setState(
+        { localQuery: query},
+        () => { this.props.onChange(query)}
+      );
+      
+    }
+
+
   render() {
-    const { query } = this.props;  
+    const { query } = this.props;
 
     return (
-      <div><input name="query" type="text" value={query} onChange={ this.updateValue } /></div>
+      <div>
+        <form onSubmit={this.submitForm}>
+          <input name="query" type="text" onChange={ this.updateValueQuery } value={query} placeholder="Search free hight-resolution photo"/>
+          <button types="submit">Search</button>
+        </form>
+        
+        </div>
     );
   }
 }

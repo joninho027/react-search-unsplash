@@ -5,7 +5,7 @@ class Unsplashgallery extends Component {
 
 
   buildColumns(col) {
-    const { imagesList } = this.props;
+    const { imagesList, onClick, download } = this.props;
     let imagecounter = 0;
     let columns = [];
     let modulo = imagesList.length % col;
@@ -26,15 +26,20 @@ class Unsplashgallery extends Component {
         const row = [];
         
         for(let j = 0; j < layout[i]; j++) {
-          const item = <Image 
-                          source={imagesList[imagecounter].urls.regular} 
-                          alt={imagesList[imagecounter].description} 
-                          key={imagesList[imagecounter].id} />;
+          const currentImage = imagesList[imagecounter]
+          const item = <Image
+                          download={ () => download(currentImage) }
+                          onClick={onClick}
+                          downloadlink={currentImage.links.download_location}
+                          tags={currentImage.photo_tags} 
+                          source={currentImage.urls.regular} 
+                          alt={currentImage.description} 
+                          key={currentImage.id} />;
           row.push(item);
           imagecounter++;
           
         }
-        columns.push(<div className="col">{row}</div>);
+        columns.push(<div key={i} className="col">{row}</div>);
       }
     }
     
